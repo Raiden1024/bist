@@ -15,8 +15,10 @@ Bist use a csv file for usernames and passwords and you can launch migration by 
 
 ## Usage
 
-ruby bist.rb <csv_file.sv>
+ruby bist.rb <csv_file.csv>
 
-the csv file must respect the format: username;password for columns
+the csv file must respect the columns format:
 
-The separator can be choosen by user at program execution.
+username;password
+
+The column separator can be choosen by user at program execution.
