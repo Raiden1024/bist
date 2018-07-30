@@ -1,2 +1,4 @@
-# rist
-Ruby ImapSync Tool
+# Bist
+Batch ImapSync Tool in Ruby language
+
+
