@@ -22,3 +22,10 @@ the csv file must respect the columns format:
 username;password
 
 The column separator can be choosen by user at program execution.
+
+for now, the password must be the same on source and destination.
+
+## ToDo
+
+* permit different password for source and destination
+* create a binary or installable package for Bist
