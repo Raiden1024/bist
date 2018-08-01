@@ -35,7 +35,7 @@ end
 
 date = Time.now.day.to_s+"-"+Time.now.month.to_s+"-"+Time.now.year.to_s
 
-def mass_imapsync(f, d)
+def mass_imapsync(f, d, shost, dhost)
   threads = []
   f.each do |el|
     unless el.empty?
@@ -44,11 +44,11 @@ def mass_imapsync(f, d)
                "--nosyncacls " +
                "--subscribe "  +
                "--syncinternaldates " +
-               "--host1 #{host1} " +
+               "--host1 #{shost} " +
                "--ssl2 " +
                "--user1 #{el[0]} " +
                "--password1 '\"#{el[1]}\"' " +
-               "--host2 #{host2} " +
+               "--host2 #{dhost} " +
                "--ssl2 " +
                "--user2 #{el[0]} " +
                "--password2 '\"#{el[1]}\"' " +
@@ -57,6 +57,7 @@ def mass_imapsync(f, d)
                "--regextrans2 \"s/[ ]+/_/g\" " +
                "--useuid " +
                "--usecache " +
+               "--errorsmax 200 " +
                "--logfile #{el[0]}_#{d}.log")
       }
     end
@@ -66,7 +67,7 @@ end
 
 
 file.each_slice(account_slice) do |slice|
-  mass_imapsync(slice, date)
+  mass_imapsync(slice, date, host1, host2)
 end
 
 puts "\e[42mMigration complete!\e[0m"
