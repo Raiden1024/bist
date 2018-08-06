@@ -58,6 +58,7 @@ def mass_imapsync(f, d, shost, dhost)
                "--useuid " +
                "--usecache " +
                "--errorsmax 200 " +
+               "--nofoldersizes --skipsize --fast " +
                "--logfile #{el[0]}_#{d}.log")
       }
     end
